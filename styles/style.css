@@ -1,41 +1,92 @@
+/* ── Reset / Base ───────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 10px;
   font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(135deg, #FF4081, #C2185B, #FF80AB);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
 }
 
+/* ── Animations ─────────────────────────────────────────── */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
+
+/* ── Body ───────────────────────────────────────────────── */
+body {
+  width: 640px;
+  margin: 40px auto;
+  background-color: #FFF0F5;
+  padding: 40px 48px 48px 48px;
+  border: 2px solid #FF4081;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(194, 24, 91, 0.18);
+  animation: fadeInDown 0.7s ease both;
+}
+
+/* ── Headings ───────────────────────────────────────────── */
 h1 {
   font-size: 60px;
   text-align: center;
+  margin: 0 0 24px 0;
+  padding: 20px 0;
+  color: #C2185B;
+  text-shadow: 2px 2px 0 #FF80AB;
+  letter-spacing: 2px;
 }
 
+/* ── Typography ─────────────────────────────────────────── */
 p, li {
   font-size: 16px;
   line-height: 2;
   letter-spacing: 1px;
+  color: #4a0030;
 }
 
-
-html {
-  background-color: #00539F;
+ul {
+  padding-left: 28px;
 }
 
-body {
-  width: 600px;
-  margin: 0 auto;
-  background-color: #FF9500;
-  padding: 0 20px 20px 20px;
-  border: 5px solid black;
+/* ── Links ──────────────────────────────────────────────── */
+a {
+  color: #E91E63;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.25s ease, border-color 0.25s ease;
 }
 
-h1 {
-  margin: 0;
-  padding: 20px 0;
-  color: #00539F;
-  text-shadow: 3px 3px 1px black;
+a:hover,
+a:focus {
+  color: #880E4F;
+  border-bottom-color: #880E4F;
+  outline: none;
 }
 
+/* ── Image ──────────────────────────────────────────────── */
 img {
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 32px auto;
+  animation: pulse 3s ease-in-out infinite;
 }
